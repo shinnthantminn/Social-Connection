@@ -1,0 +1,3 @@
+ep 1 => Intro Everything
+ep 2 => APP Overview
+ep 6 => တကယ်ကောင်းပါတယ် state management လုပ်တာ
