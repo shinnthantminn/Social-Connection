@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   data: null,
+  profile: null,
   isAuthentication: false,
 };
 
@@ -17,7 +18,7 @@ const authSlicer = createSlice({
       state.isLoading = false;
       state.data = action.payload;
     },
-    Fail: (state, action) => {
+    Fail: (state, { payload }) => {
       state.isLoading = false;
     },
     authSuccess: (state, { payload }) => {
@@ -25,13 +26,25 @@ const authSlicer = createSlice({
       state.isLoading = false;
       state.data = payload;
     },
-    authFail: (state, action) => {
+    GetCurrentProfile: (state, { payload }) => {
+      state.profile = payload;
+      state.isLoading = false;
+    },
+    authFail: (state, { payload }) => {
       state.isAuthentication = false;
+      state.data = null;
+      state.profile = null;
       state.isLoading = false;
     },
   },
 });
 
-export const { Success, Start, Fail, authFail, authSuccess } =
-  authSlicer.actions;
+export const {
+  Success,
+  Start,
+  Fail,
+  authFail,
+  authSuccess,
+  GetCurrentProfile,
+} = authSlicer.actions;
 export default authSlicer.reducer;

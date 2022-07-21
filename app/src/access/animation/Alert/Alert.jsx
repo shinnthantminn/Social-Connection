@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { memo } from "react";
 
 const Alert = () => {
   return (
@@ -9,4 +10,4 @@ const Alert = () => {
   );
 };
 
-export default Alert;
+export default memo(Alert);

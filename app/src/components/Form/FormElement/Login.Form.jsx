@@ -27,7 +27,6 @@ const LoginForm = () => {
 
   const onSubmit = async (value) => {
     const res = await Login(dispatch, value);
-    console.log(res);
   };
 
   const initialValue = {

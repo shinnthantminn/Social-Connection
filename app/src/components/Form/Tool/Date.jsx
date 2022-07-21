@@ -1,6 +1,6 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 
 const Date = ({
   name,
@@ -11,8 +11,10 @@ const Date = ({
 }) => {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      <Field {...name}>
+      <label htmlFor={name} className={labelClass}>
+        {label}
+      </label>
+      <Field name={name}>
         {({ field, form: { setFieldValue }, form }) => {
           return (
             <DatePicker
@@ -25,6 +27,7 @@ const Date = ({
           );
         }}
       </Field>
+      <ErrorMessage name={name} component={"p"} className={ErrorClass} />
     </>
   );
 };
