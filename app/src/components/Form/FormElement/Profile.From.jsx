@@ -62,6 +62,8 @@ const ProfileFrom = ({ onSubmit, edit, profile }) => {
   const [social, setSocial] = useState(edit);
   const nav = useNavigate();
 
+  console.log(profile);
+
   //value
   const value = {
     company: profile ? profile.company : "",
@@ -72,10 +74,10 @@ const ProfileFrom = ({ onSubmit, edit, profile }) => {
     bio: profile ? profile.bio : "",
     githubUsername: profile ? profile.githubUsername : "",
     social: {
-      youtube: profile ? profile.youtube : "",
-      facebook: profile ? profile.facebook : "",
-      linkIn: profile ? profile.linkIn : "",
-      instagram: profile ? profile.linkIn : "",
+      youtube: profile ? profile.social.youtube : "",
+      facebook: profile ? profile.social.facebook : "",
+      linkIn: profile ? profile.social.linkIn : "",
+      instagram: profile ? profile.social.instagram : "",
     },
   };
 

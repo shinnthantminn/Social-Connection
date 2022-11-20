@@ -2,9 +2,15 @@ import { LeftAnimation } from "../components";
 import { Outlet, useLocation } from "react-router-dom";
 import Loading from "../access/animation/Loading/Loading";
 import PrivateRoute from "../helper/PrivateRoute";
+import { useEffect } from "react";
 
 const LandingPage = ({ loading, auth }) => {
   const location = useLocation();
+
+  useEffect(() => {
+    document.title = "Social Connection";
+  }, []);
+
   return (
     <>
       <PrivateRoute

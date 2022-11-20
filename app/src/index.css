@@ -35,3 +35,46 @@
 .form {
   @apply w-full outline-0 px-2 py-2 my-1 rounded border border-gray-400 duration-300 relative;
 }
+
+.react-datepicker-popper {
+  z-index: 1000;
+}
+
+.active {
+  @apply text-teal-400;
+}
+
+.se-resizing-bar {
+  display: none !important;
+}
+
+.sun-editor {
+  border: 0;
+}
+
+.se-placeholder {
+  font-size: 20px !important;
+}
+
+.se-wrapper-inner {
+  font-size: 20px !important;
+}
+
+.post {
+  resize: none;
+}
+
+.read-more-button {
+  cursor: pointer !important;
+  display: inline;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.menu {
+  @apply absolute origin-top  text-center shadow  bg-white z-[200] border border-2 border-gray-300 rounded duration-300 w-[70px];
+}
+
+.mobile {
+  @apply transition-transform ease-linear sm:translate-x-0 duration-300 flex bg-white shadow border sm:border-none sm:shadow-none w-[60%] px-5 py-5 space-y-3 sm:space-y-0 sm:p-0 top-0 right-0 z-[2000] h-screen sm:h-fit sm:w-fit flex-col sm:flex-row sm:items-center sm:space-x-5 paraText fixed sm:static;
+}

@@ -1,7 +1,21 @@
 import React, { Suspense, useEffect } from "react";
 const LandingPage = React.lazy(() => import("./pages/Landing.Page"));
-import { CreateProfile, Home, User, Edit, AddEdu, AddExp } from "./pages";
-import { Nav, LandingIntro, LoginForm, SignUpForm } from "./components";
+import {
+  CreateProfile,
+  Home,
+  User,
+  Edit,
+  AddEdu,
+  AddExp,
+  Developer,
+} from "./pages";
+import {
+  Nav,
+  LandingIntro,
+  LoginForm,
+  SignUpForm,
+  Profile,
+} from "./components";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Alert from "./access/animation/Alert/Alert";
 import setAuthHeader from "./helper/setAuthHeader";
@@ -107,7 +121,7 @@ const App = () => {
             }
           />
           <Route
-            path={"user"}
+            path={"dashboard"}
             element={
               <User
                 auth={isAuthentication}
@@ -117,7 +131,21 @@ const App = () => {
               />
             }
           />
+          <Route
+            path={"dev"}
+            element={
+              <Developer
+                auth={isAuthentication}
+                profile={profile}
+                data={data}
+                loading={isLoading}
+              />
+            }
+          />
         </Route>
+
+        {/*profile*/}
+        <Route path={"/profile/:id"} element={<Profile />} />
       </Routes>
     </div>
   );

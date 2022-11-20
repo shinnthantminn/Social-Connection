@@ -116,11 +116,9 @@ const EducationForm = ({ onSubmit }) => {
 
                 <div className="w-full sm:w-[50%] relative">
                   <FormControl
-                    type={"text"}
                     control={"date"}
                     placeholderText={"Enter end of study"}
                     name={"to"}
-                    value={formik.values.current ? null : formik.values.to}
                     disabled={formik.values.current}
                     placeholder={"To"}
                     labelClass={
@@ -150,7 +148,7 @@ const EducationForm = ({ onSubmit }) => {
                 />
               </div>
 
-              <div className="float-right space-x-2">
+              <div className="float-right space-x-2 z-[100]">
                 <button
                   onClick={() => nav(-1)}
                   type="button"

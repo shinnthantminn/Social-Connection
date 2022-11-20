@@ -1,6 +1,2 @@
-./Note.txt
-./API/.env
-./API/node_modules
-./app/node_modules
-./API/*
-./app/*
+*Note.txt
+**.idea/

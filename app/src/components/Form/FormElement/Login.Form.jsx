@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 import { BsEnvelope } from "react-icons/bs";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Login } from "../../../store/action/authAction";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -24,6 +24,10 @@ const LoginForm = () => {
 
   const { data } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.title = "Social | Login";
+  }, []);
 
   const onSubmit = async (value) => {
     const res = await Login(dispatch, value);

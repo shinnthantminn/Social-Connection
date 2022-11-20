@@ -7,9 +7,14 @@ import { MdOutlineCastForEducation } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { connect } from "react-redux";
 import { Logout } from "../store/action/authAction";
+import { useEffect } from "react";
 
-const UserPage = ({ auth, profile, data, loading, Logout }) => {
+const DashboardPage = ({ auth, profile, data, loading, Logout }) => {
   const nav = useNavigate();
+
+  useEffect(() => {
+    document.title = "Social | Dashboard";
+  }, []);
 
   return (
     <PrivateRoute check={!localStorage.token} path={"/"} route={"/home/user"}>
@@ -75,4 +80,4 @@ const UserPage = ({ auth, profile, data, loading, Logout }) => {
   );
 };
 
-export default connect(null, { Logout })(UserPage);
+export default connect(null, { Logout })(DashboardPage);

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const PrivateRoute = ({ children, check, path, route = "/" }) => {
   const { profile, isLoading } = useSelector((state) => state.auth);
 
-  isLoading
+  isLoading;
 
   if (check) {
     return <Navigate to={path} state={{ route }} />;

@@ -8,7 +8,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Register } from "../../../store/action/authAction";
 
@@ -40,6 +40,10 @@ const SignUpForm = () => {
   const [confirmShow, setConfirmShow] = useState(false);
   const dispatch = useDispatch();
   const nav = useNavigate();
+
+  useEffect(() => {
+    document.title = "Social | SignUp";
+  }, []);
 
   const onSubmit = async (value) => {
     const res = await Register(dispatch, value);

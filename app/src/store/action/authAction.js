@@ -6,6 +6,7 @@ import {
   authFail,
   GetCurrentProfile,
 } from "../slicer/authSlicer";
+import { logOut } from "../slicer/profileSlicer";
 import { toast } from "react-toastify";
 import { fetch } from "../../BaseUrl";
 import axios from "axios";
@@ -124,6 +125,9 @@ export const Edit = async (dispatch, fromData) => {
 export const AddEdu = (formData) => async (dispatch) => {
   dispatch(Start());
   try {
+    if (formData.current) {
+      formData.to = null;
+    }
     const res = await fetch.post("/profile/edu", { ...formData });
     if (res.data.con) {
       dispatch(GetCurrentProfile(res.data.result));
@@ -144,6 +148,9 @@ export const AddEdu = (formData) => async (dispatch) => {
 export const AddExp = (formData) => async (dispatch) => {
   dispatch(Start());
   try {
+    if (formData.current) {
+      formData.to = null;
+    }
     const res = await fetch.post("/profile/exp", { ...formData });
     if (res.data.con) {
       dispatch(GetCurrentProfile(res.data.result));
@@ -164,6 +171,7 @@ export const AddExp = (formData) => async (dispatch) => {
 export const Logout = () => (dispatch) => {
   localStorage.removeItem("token");
   dispatch(authFail());
+  dispatch(logOut());
 };
 
 //drop exp
@@ -211,6 +219,7 @@ export const deactivate = () => async (dispatch) => {
       localStorage.removeItem("token");
       if (res.data.con) {
         dispatch(authFail());
+        dispatch(logOut());
         toast.success("complete deactivate");
       } else {
         toast.error(res.data.msg);

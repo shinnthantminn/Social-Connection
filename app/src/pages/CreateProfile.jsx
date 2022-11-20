@@ -5,10 +5,15 @@ import Loading from "../access/animation/Loading/Loading";
 import PrivateRoute from "../helper/PrivateRoute";
 import { Create } from "../store/action/authAction";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const CreateProfile = ({ auth, data, isLoading }) => {
   const dispatch = useDispatch();
   const nav = useNavigate();
+
+  useEffect(() => {
+    document.title = "Social | Create Profile";
+  }, []);
 
   const submit = async (value) => {
     const res = await Create(dispatch, value);

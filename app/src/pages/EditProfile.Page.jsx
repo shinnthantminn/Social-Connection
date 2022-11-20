@@ -4,10 +4,15 @@ import PrivateRoute from "../helper/PrivateRoute";
 import { Edit } from "../store/action/authAction";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const EditProfilePage = ({ profile, isLoading }) => {
   const dispatch = useDispatch();
   const nav = useNavigate();
+
+  useEffect(() => {
+    document.title = "Social | EditProfile";
+  }, []);
 
   const onSubmit = async (value) => {
     const res = await Edit(dispatch, value);

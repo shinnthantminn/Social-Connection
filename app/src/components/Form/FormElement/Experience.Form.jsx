@@ -1,19 +1,10 @@
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, useFormik } from "formik";
 import FormControl from "../FormControl";
 import { BsBuilding } from "react-icons/bs";
 import { BiCog, BiLocationPlus, BiTime } from "react-icons/bi";
-
-const initialValue = {
-  title: "",
-  company: "",
-  location: "",
-  from: null,
-  to: null,
-  current: false,
-  description: "",
-};
+import { useState } from "react";
 
 const validationSchema = yup.object({
   title: yup.string().required("This field was required."),
@@ -33,6 +24,18 @@ const validationSchema = yup.object({
 
 const ExperienceForm = ({ onSubmit }) => {
   const nav = useNavigate();
+
+  const [to, setTo] = useState(null);
+
+  const initialValue = {
+    title: "",
+    company: "",
+    location: "",
+    from: null,
+    to,
+    current: false,
+    description: "",
+  };
   return (
     <>
       <>
@@ -42,7 +45,10 @@ const ExperienceForm = ({ onSubmit }) => {
           onSubmit={onSubmit}
         >
           {(formik) => {
-            console.log(formik);
+            if (formik.values.current) {
+              setTo(null);
+              console.log(formik.values);
+            }
             return (
               <Form>
                 <div className="flex flex-wrap sm:flex-nowrap gap-2 mb-5">
